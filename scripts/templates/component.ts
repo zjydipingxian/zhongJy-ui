@@ -1,13 +1,15 @@
+const genSlice = (str: string) => str[0].toUpperCase() + str.slice(1)
+
 // 生成组件索引文件内容的函数
 export const generateIndexContent = (name: string): string => `
 import { withInstall } from '@jy-ui/utils'
 
-import ${name[0].toUpperCase() + name.slice(1)} from './src/${name}.vue'
+import ${genSlice(name)} from './src/${name}.vue'
 import type { SFCWithInstall } from '@jy-ui/utils'
 
-export const Jy${name[0].toUpperCase() + name.slice(1)} = withInstall(${name[0].toUpperCase() + name.slice(1)}) as SFCWithInstall<typeof ${name[0].toUpperCase() + name.slice(1)}>
+export const Jy${genSlice(name)} = withInstall(${genSlice(name)}) as SFCWithInstall<typeof ${genSlice(name)}>
 
-export default Jy${name[0].toUpperCase() + name.slice(1)}
+export default Jy${genSlice(name)}
 
 export * from './src/${name}'
 `
@@ -15,13 +17,13 @@ export * from './src/${name}'
 // 生成组件类型文件内容的函数
 export const generateComponentContent = (name: string): string => `
 import type { ExtractPropTypes } from 'vue'
-import type ${name[0].toUpperCase() + name.slice(1)} from './${name}.vue'
+import type ${genSlice(name)} from './${name}.vue'
 
 export const ${name}Props = {} as const
 
-export type ${name[0].toUpperCase() + name.slice(1)}Props = ExtractPropTypes<typeof ${name}Props>
+export type ${genSlice(name)}Props = ExtractPropTypes<typeof ${name}Props>
 
-export type ${name[0].toUpperCase() + name.slice(1)}Instance = InstanceType<typeof ${name[0].toUpperCase() + name.slice(1)}>
+export type ${genSlice(name)}Instance = InstanceType<typeof ${genSlice(name)}>
 `
 
 // 生成 Vue 组件文件内容的函数
@@ -36,7 +38,7 @@ export const generateVueContent = (name: string): string => `
 import { ${name}Props } from './${name}'
 
 defineOptions({
-  name: 'Jy${name[0].toUpperCase() + name.slice(1)}'
+  name: 'Jy${genSlice(name)}'
 })
 
 defineProps(${name}Props)
