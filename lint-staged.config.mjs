@@ -1,5 +1,5 @@
 /**  @type {import('lint-staged').Config} */
-export default { 
+export default {
   '*.{vue,js,ts,jsx,tsx,md,json}': ['prettier --write'],
-  '*.{vue,js,ts,jsx,tsx}': ['eslint --fix']
-}
+  '*.{vue,js,ts,jsx,tsx}': ['eslint --fix'],
+};
