@@ -20,5 +20,6 @@
       "jy-ui": ["packages/jy-ui"]
     },
     "preserveSymlinks": true
-  }
+  },
+  "include": ["packages/**/*.ts"]
 }

@@ -1,13 +1,3 @@
 {
-    "recommendations": [
-        "dbaeumer.vscode-eslint",
-        "esbenp.prettier-vscode",
-        "vue.volar",
-        "vue.vscode-typescript-vue-plugin",
-        "stylelint.vscode-stylelint",
-        "mikestead.dotenv",
-        "eamodio.gitlens",
-        "streetsidesoftware.code-spell-checker",
-        "christian-kohler.path-intellisense"
-    ]
+  "recommendations": ["Vue.volar", "dbaeumer.vscode-eslint", "esbenp.prettier-vscode"]
 }
