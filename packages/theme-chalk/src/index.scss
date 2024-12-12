@@ -1,0 +1,7 @@
+@use 'common/var';
+@use 'mixins/mixins';
+
+// 导入所有组件样式
+@use 'button';
+@use 'input';
+// ... 其他组件样式 

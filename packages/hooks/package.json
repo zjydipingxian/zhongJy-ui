@@ -1,0 +1,8 @@
+{
+  "name": "@jy-ui/hooks",
+  "version": "0.0.1",
+  "description": "Vue3 composable hooks collection",
+  "main": "dist/index.js",
+  "module": "dist/index.mjs",
+  "types": "dist/index.d.ts"
+} 

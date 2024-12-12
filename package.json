@@ -1,0 +1,49 @@
+{
+  "private": true,
+  "engines": {
+    "node": ">16",
+    "pnpm": ">=7"
+  },
+  "workspaces": [
+    "packages/*"
+  ],
+  "description": "Vue3 Component Library with TypeScript",
+  "scripts": {
+    "lint": "eslint . --ext .vue,.js,.ts,.jsx,.tsx --fix",
+    "format": "prettier --write \"**/*.{vue,ts,tsx,js,jsx,json,md}\"",
+    "prepare": "husky install",
+    "commit": "git-cz",
+    "preinstall": "npx only-allow pnpm"
+  },
+  "devDependencies": {
+    "@commitlint/cli": "^17.0.0",
+    "@commitlint/config-conventional": "^17.0.0",
+    "@types/node": "^22.10.2",
+    "@typescript-eslint/eslint-plugin": "^5.59.0",
+    "@typescript-eslint/parser": "^5.59.0",
+    "@vue/eslint-config-prettier": "^7.1.0",
+    "@vue/eslint-config-typescript": "^11.0.3",
+    "chalk": "^4.1.2",
+    "commitizen": "^4.3.0",
+    "cz-git": "^1.8.0",
+    "eslint": "^8.38.0",
+    "eslint-plugin-vue": "^9.11.0",
+    "husky": "^8.0.0",
+    "lint-staged": "^15.2.10",
+    "prettier": "^2.8.7",
+    "typescript": "^5.0.4",
+    "vue": "^3.2.47",
+    "vue-tsc": "^1.8.27"
+  },
+  "dependencies": {
+    "@jy-ui/components": "workspace:*",
+    "@jy-ui/hooks": "workspace:*",
+    "@jy-ui/theme-chalk": "workspace:*",
+    "@jy-ui/utils": "workspace:*"
+  },
+  "config": {
+    "commitizen": {
+      "path": "node_modules/cz-git"
+    }
+  }
+}
