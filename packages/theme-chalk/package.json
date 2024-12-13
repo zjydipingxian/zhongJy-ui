@@ -1,6 +1,6 @@
 {
   "name": "@jy-ui/theme-chalk",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "JY-UI component theme chalk",
   "main": "index.css"
-} 
+}

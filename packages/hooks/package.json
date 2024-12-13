@@ -1,6 +1,6 @@
 {
   "name": "@jy-ui/hooks",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Vue3 composable hooks collection",
   "main": "index.ts",
   "module": "index.ts",
