@@ -9,7 +9,7 @@ export const updateComponentEntry = async (name: string) => {
 
   // 解析现有的导入语句
   const importRegex = /import { [^}]+ } from '@jy-ui\/components\/[^']+'/g
-  const imports = content.match(importRegex) || []
+  const imports: string[] = content.match(importRegex) || []
 
   // 解析现有的导出数组
   const exportRegex = /export default \[(.*?)\] as Plugin\[\]/

@@ -61,17 +61,10 @@ export const createComponent = async (name: string) => {
 // 更新组件库入口文件
 const updateComponentsEntry = async (newComponent: string) => {
   try {
-    // 读取现有的导出语句
     let content = await fs.readFile(PATHS.componentsEntry, 'utf-8')
-    const exportStatements = content.match(/export \* from '\.\/[^']+'/g) || []
-
-    // 添加新的导出语句
+    const exportStatements: string[] = content.match(/export \* from '\.\/[^']+'/g) || []
     exportStatements.push(`export * from './${newComponent}'`)
-
-    // 按字母顺序排序
     exportStatements.sort()
-
-    // 格式化并写入文件
     content = exportStatements.join('\n') + '\n'
     await fs.writeFile(PATHS.componentsEntry, await formatCode(content))
   } catch (error) {

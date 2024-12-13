@@ -30,7 +30,7 @@ export type ${genSlice(name)}Instance = InstanceType<typeof ${genSlice(name)}>
 // 生成 Vue 组件文件内容的函数
 export const generateVueContent = (name: string): string => `
 <template>
-  <div class="jy-${name}">
+  <div class="ns.b()">
     Hello from ${name}
   </div>
 </template>

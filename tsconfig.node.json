@@ -6,6 +6,6 @@
     "types": ["node"],
     "skipLibCheck": true
   },
-  "include": ["scripts/**/*", "packages/**/*.ts", "packages/theme-chalk/*", "packages/jy-ui/package.json"],
+  "include": ["scripts/**/*", "packages/**/*.ts", "packages/**/*.vue", "packages/theme-chalk/*", "packages/jy-ui/package.json"],
   "exclude": ["**/__tests__/**", "**/tests/**", "**/dist"]
 }
