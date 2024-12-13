@@ -1,4 +1,5 @@
 const genSlice = (str: string) => str[0].toUpperCase() + str.slice(1)
+export const defaultNamespace = 'Jy'
 
 // 生成组件索引文件内容的函数
 export const generateIndexContent = (name: string): string => `
@@ -7,9 +8,9 @@ import { withInstall } from '@jy-ui/utils'
 import ${genSlice(name)} from './src/${name}.vue'
 import type { SFCWithInstall } from '@jy-ui/utils'
 
-export const Jy${genSlice(name)} = withInstall(${genSlice(name)}) as SFCWithInstall<typeof ${genSlice(name)}>
+export const ${defaultNamespace}${genSlice(name)} = withInstall(${genSlice(name)}) as SFCWithInstall<typeof ${genSlice(name)}>
 
-export default Jy${genSlice(name)}
+export default ${defaultNamespace}${genSlice(name)}
 
 export * from './src/${name}'
 `
@@ -35,10 +36,13 @@ export const generateVueContent = (name: string): string => `
 </template>
 
 <script setup lang="ts">
+import { useNamespace } from '@jy-ui/hooks'
 import { ${name}Props } from './${name}'
 
+const ns = useNamespace('${name}')
+
 defineOptions({
-  name: 'Jy${genSlice(name)}'
+  name: '${defaultNamespace}${genSlice(name)}'
 })
 
 defineProps(${name}Props)

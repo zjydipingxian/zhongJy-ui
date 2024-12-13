@@ -5,6 +5,7 @@ import { formatCode } from './format.js'
 import { generateIndexContent, generateComponentContent, generateVueContent } from '../templates/component.js'
 import chalk from 'chalk'
 import ora from 'ora'
+import { generateTestContent } from '../templates/test.ts'
 
 export const createComponent = async (name: string) => {
   const spinner = ora('正在创建组件...').start()
@@ -32,6 +33,11 @@ export const createComponent = async (name: string) => {
 
     // 更新入口文件
     await updateComponentsEntry(name)
+
+    // 创建测试文件
+    const testDir = resolve(componentDir, '__tests__')
+    await fs.mkdir(testDir, { recursive: true })
+    await fs.writeFile(resolve(testDir, `${name}.test.ts`), await formatCode(generateTestContent(genSlice(name))))
 
     spinner.succeed(chalk.green(`组件 ${name} 创建成功！`))
   } catch (error) {

@@ -14,7 +14,7 @@ export default [
   { ignores: ['commitlint.config.cjs', 'scripts/'] },
   {
     rules: {
-      'no-console': 'error',
+      'no-console': 'off',
       // 使用 TypeScript 的未使用变量规则
       '@typescript-eslint/no-unused-vars': [
         'error',

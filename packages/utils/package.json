@@ -1,8 +1,13 @@
 {
   "name": "@jy-ui/utils",
-  "version": "0.0.1",
+  "private": true,
   "description": "JY-UI common utilities",
-  "main": "dist/index.js",
-  "module": "dist/index.mjs",
-  "types": "dist/index.d.ts"
-} 
+  "main": "index.ts",
+  "module": "index.ts",
+  "exports": {
+    "./*": "./*",
+    ".": {
+      "import": "./index.ts"
+    }
+  }
+}
