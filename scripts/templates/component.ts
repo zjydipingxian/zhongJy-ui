@@ -1,4 +1,4 @@
-const genSlice = (str: string) => str[0].toUpperCase() + str.slice(1)
+export const genSlice = (str: string) => str[0].toUpperCase() + str.slice(1)
 export const defaultNamespace = 'Jy'
 
 // 生成组件索引文件内容的函数

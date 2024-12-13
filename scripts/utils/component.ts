@@ -2,10 +2,11 @@ import fs from 'fs-extra'
 import { resolve } from 'path'
 import { PATHS } from './paths.js'
 import { formatCode } from './format.js'
-import { generateIndexContent, generateComponentContent, generateVueContent } from '../templates/component.js'
+import { generateIndexContent, generateComponentContent, generateVueContent, genSlice } from '../templates/component.js'
 import chalk from 'chalk'
 import ora from 'ora'
-import { generateTestContent } from '../templates/test.ts'
+import { generateTestContent } from '../templates/test'
+import { updateComponentEntry } from './update-component-entry'
 
 export const createComponent = async (name: string) => {
   const spinner = ora('正在创建组件...').start()
@@ -38,6 +39,9 @@ export const createComponent = async (name: string) => {
     const testDir = resolve(componentDir, '__tests__')
     await fs.mkdir(testDir, { recursive: true })
     await fs.writeFile(resolve(testDir, `${name}.test.ts`), await formatCode(generateTestContent(genSlice(name))))
+
+    // 更新 component.ts
+    await updateComponentEntry(name)
 
     spinner.succeed(chalk.green(`组件 ${name} 创建成功！`))
   } catch (error) {
