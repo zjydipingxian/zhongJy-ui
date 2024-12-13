@@ -8,6 +8,11 @@ export default defineConfig({
     globals: true,
     environment: 'jsdom',
     include: ['packages/components/**/__tests__/*.{test,spec}.{ts,tsx}'],
+    coverage: {
+      provider: 'v8',
+      include: ['packages/components/**/src/**'],
+      exclude: ['packages/components/**/index.ts', 'packages/components/**/__tests__/**'],
+    },
   },
   resolve: {
     alias: {
