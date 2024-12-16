@@ -1,7 +1,7 @@
 import DefaultTheme from 'vitepress/theme'
 import type { Theme } from 'vitepress'
 import JyUI from 'jy-ui'
-import ExampleDemo from '../components/ExampleDemo.vue'
+import ExampleDemo from '../components/Demo.vue'
 import './style.css'
 
 export default {

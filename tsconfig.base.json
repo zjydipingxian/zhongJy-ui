@@ -14,7 +14,7 @@
     "esModuleInterop": true,
     "removeComments": false,
     "rootDir": ".",
-    "types": ["node", "vitepress"],
+    "types": ["node", "vitepress", "vitepress/theme", "vitepress/client"],
     "paths": {
       "@jy-ui/*": ["packages/*"],
       "jy-ui": ["packages/jy-ui"]
