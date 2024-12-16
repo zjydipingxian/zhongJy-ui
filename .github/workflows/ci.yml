@@ -6,6 +6,17 @@ on:
   pull_request:
     branches: [master]
 
+# 设置 GITHUB_TOKEN 的权限
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# 允许一个并发的部署
+concurrency:
+  group: 'pages'
+  cancel-in-progress: true
+
 jobs:
   test:
     runs-on: ubuntu-latest
@@ -48,8 +59,25 @@ jobs:
       - name: Build Docs
         run: pnpm docs:build
 
-      # 上传文档构建产物
-      - name: Upload Docs Artifact
+      # 配置 Pages
+      - name: Setup Pages
+        uses: actions/configure-pages@v4
+
+      # 上传构建产物
+      - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
           path: ./docs/.vitepress/dist
+
+  # 部署到 GitHub Pages
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    needs: test # 需要等待测试任务完成
+
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
