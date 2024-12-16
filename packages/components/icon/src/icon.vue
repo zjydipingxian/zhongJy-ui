@@ -26,7 +26,7 @@
 
     return {
       fontSize: isUndefined(size) ? undefined : addUnit(size),
-      '--color': color,
+      color: color,
     }
   })
 </script>

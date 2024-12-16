@@ -1,0 +1,13 @@
+{
+  "extends": "../tsconfig.base.json",
+  "compilerOptions": {
+    "module": "ESNext",
+    "moduleResolution": "bundler",
+    "types": ["vitepress/client", "vitepress"],
+    "paths": {
+      "@jy-ui/*": ["packages/*"],
+      "jy-ui": ["packages/jy-ui"]
+    }
+  },
+  "include": [".vitepress/**/*", "components/**/*"]
+}
