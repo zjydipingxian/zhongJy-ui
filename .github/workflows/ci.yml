@@ -1,0 +1,74 @@
+name: CI
+
+on:
+  push:
+    branches: [master]
+  pull_request:
+    branches: [master]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v2
+        with:
+          version: 8
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 18
+          cache: 'pnpm'
+
+      # 缓存 pnpm store
+      - name: Get pnpm store directory
+        shell: bash
+        run: |
+          echo "STORE_PATH=$(pnpm store path --silent)" >> $GITHUB_ENV
+
+      - uses: actions/cache@v3
+        name: Setup pnpm cache
+        with:
+          path: ${{ env.STORE_PATH }}
+          key: ${{ runner.os }}-pnpm-store-${{ hashFiles('**/pnpm-lock.yaml') }}
+          restore-keys: |
+            ${{ runner.os }}-pnpm-store-
+
+      # 缓存 node_modules
+      - uses: actions/cache@v3
+        name: Cache node_modules
+        id: node-modules-cache
+        with:
+          path: |
+            **/node_modules
+          key: ${{ runner.os }}-node-modules-${{ hashFiles('**/pnpm-lock.yaml') }}
+          restore-keys: |
+            ${{ runner.os }}-node-modules-
+
+      - name: Install dependencies
+        if: steps.node-modules-cache.outputs.cache-hit != 'true'
+        run: pnpm install
+
+      # 缓存测试结果
+      - uses: actions/cache@v3
+        name: Setup Vitest cache
+        with:
+          path: |
+            coverage
+            .vitest-cache
+          key: ${{ runner.os }}-vitest-${{ hashFiles('**/*.{ts,vue}') }}
+          restore-keys: |
+            ${{ runner.os }}-vitest-
+
+      - name: Test
+        run: pnpm test
+
+      # 上传测试覆盖率报告
+      - name: Upload coverage reports
+        uses: codecov/codecov-action@v3
+        env:
+          CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
