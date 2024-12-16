@@ -24,7 +24,8 @@ describe('Icon.vue', () => {
       const wrapper = mount(Icon, {
         props: { color: 'red' },
       })
-      expect(wrapper.element.style.getPropertyValue('--color')).toBe('red')
+      // 校验 color 属性
+      expect(wrapper.element.style.color).toBe('red')
     })
   })
 
@@ -55,13 +56,13 @@ describe('Icon.vue', () => {
         },
       })
       expect(wrapper.element.style.fontSize).toBe('24px')
-      expect(wrapper.element.style.getPropertyValue('--color')).toBe('blue')
+      expect(wrapper.element.style.color).toBe('blue')
     })
 
     it('has no style when no props provided', () => {
       const wrapper = mount(Icon)
       expect(wrapper.element.style.fontSize).toBe('')
-      expect(wrapper.element.style.getPropertyValue('--color')).toBe('')
+      expect(wrapper.element.style.color).toBe('')
     })
   })
 })
