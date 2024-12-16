@@ -4,7 +4,7 @@ import { fileURLToPath, URL } from 'node:url'
 export default defineConfig({
   title: 'JY-UI',
   description: 'Vue3 Component Library',
-  base: '/jy-ui/',
+  base: '/zhongJy-ui/',
   themeConfig: {
     logo: '/logo.svg',
     nav: [
