@@ -4,7 +4,8 @@
   "editor.formatOnPaste": true,
   "editor.formatOnType": true,
   "editor.codeActionsOnSave": {
-    "source.fixAll.eslint": "explicit"
+    "source.fixAll.eslint": "explicit",
+    "source.fixAll.stylelint": "explicit"
   },
   "eslint.validate": ["javascript", "javascriptreact", "typescript", "typescriptreact", "vue"],
   "eslint.enable": true,
@@ -85,5 +86,7 @@
     "**/yarn.lock": true
   },
   "cSpell.words": ["tseslint"],
+  "stylelint.enable": true,
+  "stylelint.validate": ["css", "less", "postcss", "scss", "vue", "sass"],
   "eslint.experimental.useFlatConfig": true
 }
