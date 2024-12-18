@@ -1,6 +1,6 @@
-import { validateComponentName } from '../utils/validate.js' // 导入用于验证组件名称的函数
-import { checkComponentExists } from '../utils/file.js' // 导入用于检查组件是否已存在的函数
-import { createComponent } from '../utils/component.js' // 导入用于创建组件的函数
+import { validateComponentName } from '../utils/validate' // 导入用于验证组件名称的函数
+import { checkComponentExists } from '../utils/file' // 导入用于检查组件是否已存在的函数
+import { createComponent } from '../utils/component' // 导入用于创建组件的函数
 import { input, confirm } from '@inquirer/prompts' // 导入用于命令行交互的输入和确认函数
 import chalk from 'chalk' // 导入用于在命令行中输出彩色文本的库
 

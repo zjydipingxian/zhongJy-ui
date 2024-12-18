@@ -1,7 +1,7 @@
 import prettier from 'prettier'
 import fs from 'fs-extra'
 import { resolve } from 'path'
-import { PATHS } from './paths.js'
+import { PATHS } from './paths'
 
 // 格式化代码的函数
 export const formatCode = async (code: string, filename?: string) => {

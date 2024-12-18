@@ -24,7 +24,8 @@
     "docs:dev": "vitepress dev docs",
     "docs:build": "vitepress build docs",
     "docs:preview": "vitepress preview docs",
-    "theme:build": "pnpm run -C packages/theme-chalk build"
+    "theme:build": "pnpm run -C packages/theme-chalk build",
+    "component:delete": "tsx scripts/commander.ts delete"
   },
   "dependencies": {
     "@jy-ui/components": "workspace:*",
@@ -58,12 +59,14 @@
     "commander": "12.1.0",
     "commitizen": "^4.3.0",
     "cz-git": "^1.8.0",
+    "dayjs": "^1.11.13",
     "eslint": "^8.57.1",
     "eslint-config-prettier": "^9.1.0",
     "eslint-import-resolver-typescript": "^3.6.1",
     "eslint-plugin-import": "^2.29.1",
     "eslint-plugin-prettier": "^5.1.3",
     "eslint-plugin-vue": "^9.32.0",
+    "fast-glob": "^3.3.2",
     "fs-extra": "^11.2.0",
     "globals": "^15.13.0",
     "husky": "^8.0.0",

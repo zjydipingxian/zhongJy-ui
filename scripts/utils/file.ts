@@ -1,6 +1,6 @@
 import fs from 'fs-extra'
 import { resolve } from 'path'
-import { PATHS } from './paths.js'
+import { PATHS } from './paths'
 
 export const checkComponentExists = async (name: string) => {
   const componentDir = resolve(PATHS.components, name)

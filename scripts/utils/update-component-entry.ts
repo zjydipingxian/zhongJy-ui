@@ -1,7 +1,7 @@
 import fs from 'fs-extra'
 import { resolve } from 'path'
-import { PATHS } from './paths.js'
-import { formatCode } from './format.js'
+import { PATHS } from './paths'
+import { formatCode } from './format'
 
 export const updateComponentEntry = async (name: string) => {
   const componentEntryPath = resolve(PATHS.root, 'packages/jy-ui/component.ts')
