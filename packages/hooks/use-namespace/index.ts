@@ -1,4 +1,4 @@
-export const defaultNamespace = 'Jy'
+export const defaultNamespace = 'jy'
 const statePrefix = 'is-'
 
 const _bem = (namespace: string, block: string, blockSuffix: string, element: string, modifier: string) => {

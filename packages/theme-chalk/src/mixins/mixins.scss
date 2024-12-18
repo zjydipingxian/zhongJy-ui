@@ -1,0 +1,12 @@
+@use '../common/var' as *;
+
+@use 'config' as *;
+
+// BEM
+@mixin b($block) {
+  $B: $namespace + $common-separator + $block !global;
+
+  .#{$B} {
+    @content;
+  }
+}
